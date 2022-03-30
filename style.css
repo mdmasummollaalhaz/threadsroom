@@ -1,8 +1,8 @@
 /*!
-Theme Name: garydavis
+Theme Name: Garydavis
 Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
+Author: Md Masum Molla Alhaz
+Author URI: http://masummollaalhaz.com
 Description: Description
 Version: 1.0.0
 Tested up to: 5.4
@@ -66,7 +66,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
@@ -968,3 +968,391 @@ textarea {
 	margin-bottom: 1.5em;
 }
 
+
+/******************************************
+ **	Custom NavBar
+ ********************************************/
+
+.topFixed {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    position: fixed;
+    padding: 0px 0px 0px 0px;
+    top: 0;
+    display: inline-flex;
+    z-index: 9;
+    animation: 2s fadeInNav ease;
+    align-items: center;
+    align-content: center;
+}
+.menu a:hover {
+    color: red;
+    transition: 0.3s ease;
+}
+
+@keyframes fadeInNav {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    top: -25px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  } 
+}
+
+.navWrapper {
+  width: 85%;
+  margin: auto;
+  padding-top: 15px;
+}
+
+
+.right {
+  float: right;
+}
+
+#nav-icon {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  z-index: 2;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg) scale(0.4);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: #292929;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+  background: white;
+}
+
+#nav-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+  background: white;
+}
+
+#nav-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+  background: white;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+ background: #f84034;
+    background: -moz-linear-gradient(-45deg,#f84034 0,#f3167b 100%);
+    background: -webkit-linear-gradient(-45deg,#f84034 0,#f3167b 100%);
+    background: linear-gradient(135deg,#f84034 0,#f3167b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f84034', endColorstr='#f3167b', GradientType=1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  z-index: 1;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay a {
+  color: white;
+  font-size: 54px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  margin-left: 135px;
+  margin-bottom: 15px; 
+  opacity: 0;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.overlay p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+  position: absolute;
+  bottom: 20px;
+  margin-left: 135px;
+  opacity: 0;
+}
+
+.overlay p.open {
+  opacity: 1;
+  animation: 1.70s fadeInCopyright ease;
+  position: relative;
+  top: 10px;
+}
+
+@keyframes fadeInCopyright {
+  0%{
+    opacity: 0;
+  }
+  80%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.overlay a:after {
+  position: absolute;
+  transition: .3s;
+  content: '';
+  width: 0;
+  left: 50%;
+  bottom: 0;
+  height: 3px;
+  background: white;
+  left: 0;
+}
+
+.overlay a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.overlay a.open:hover {
+  transform: translateY(2px);
+}
+
+.overlay a.open:nth-child(1) {
+  opacity: 1;
+  animation: 1s fadeInLinks1 ease;
+}
+
+@keyframes fadeInLinks1 {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.overlay a.open:nth-child(2) {
+  opacity: 1;
+  animation: 1.25s fadeInLinks2 ease;
+}
+
+@keyframes fadeInLinks2 {
+  0%{
+    opacity: 0;
+  }
+  60%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.overlay a.open:nth-child(3) {
+  opacity: 1;
+  animation: 1.5s fadeInLinks3 ease;
+} 
+  
+@keyframes fadeInLinks3 {
+  0%{
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100%{
+    opacity: 1;
+  }
+} 
+.banner-section {
+    background: #f84034 url(http://www.webcoderskull.com/img/graphic-abstract.jpg) no-repeat top right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 640px;
+    position: relative;
+    background-blend-mode: multiply;
+}
+.content-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;     
+    transform: translate(-50%, -50%);
+  text-align:center;
+}
+.banner-section .content-inner .hero-text{
+    color: white;
+    font-size: 4rem;
+    padding: 0 .5em;
+    line-height: 1.25em;
+    display: block;
+     font-weight: 300;   
+}
+.banner-section .content-inner p{
+   color:#fff;
+  font-size: 2rem;
+}
+
+.overlayContent{
+	top: 81px;
+    left: -60px;
+    position: absolute;
+}
+
+
+/** Desktop and Tablet **/
+.site-branding {
+    padding: 10px 0px 10px 10px!important;
+}
+
+nav#site-navigation.main-navigation {
+    float: none!important;
+    display: block!important;
+    width: 100%!important;
+    margin-top: 0px!important;
+}
+.site-branding {
+    max-width: 100px;
+    display: inline-block;
+    padding: 10px 0px 10px 10px;
+}
+
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+.mobile-nav{
+	  display:none!important;
+  
+}
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+.mobile-nav{
+  display:none!important;
+}
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  
+.topFixed {
+    display: none!important;
+}
+.logo-mobile{
+	width: 150px;
+}
+
+.mobileNav {
+    width: 100%;
+    margin: auto;
+    padding-top: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+	position: fixed;
+	background: #fff;
+	z-index: 9;
+	animation: 2s fadeInNav ease;
+}
+
+
+}
