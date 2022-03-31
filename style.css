@@ -1353,6 +1353,23 @@ nav#site-navigation.main-navigation {
 	z-index: 9;
 	animation: 2s fadeInNav ease;
 }
+.banner-section {
+    min-height: 750px;
+    position: relative;
+}
+.content-inner {
+    width: 90%;
+}
+
+.banner-section .content-inner .hero-text {
+    font-size: 3rem;
+    padding: 0 0.5em;
+    line-height: 1.25em;
+}
+
+.banner-section .content-inner p {
+    font-size: 1.5rem;
+}
 
 
 }
